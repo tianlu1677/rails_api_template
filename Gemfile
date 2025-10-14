@@ -38,8 +38,8 @@ gem 'ransack', '~> 4.3.0'
 
 # Monitoring
 gem 'newrelic_rpm', '~> 9.21'
-gem 'sentry-ruby', '~> 5.24.0'
-gem 'sentry-sidekiq', '~> 5.24.0'
+gem 'sentry-ruby', '~> 5.28.0'
+gem 'sentry-sidekiq', '~> 5.28.0'
 
 # Storage
 gem 'active_storage_base64', '~> 3.0.1'
