@@ -40,7 +40,7 @@ WORKDIR $APP_HOME
 COPY --link Gemfile Gemfile.lock package.json yarn.lock .yarnrc.yml .ruby-version ./
 
 RUN corepack enable
-RUN gem install bundler && bundle install -j 4 && yarn install --immutable && \
+RUN gem install bundler && bundle install -j 4 && yarn install --mode=update-lockfile && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
 
 # Copy application code

@@ -32,7 +32,7 @@ RUN gem install foreman bundler
 COPY --link package.json yarn.lock .yarnrc.yml ./
 
 RUN corepack enable
-RUN yarn install --immutable && yarn cache clean
+RUN yarn install --mode=update-lockfile && yarn cache clean
 
 COPY --link Gemfile Gemfile.lock .ruby-version ./
 RUN bundle install -j 4
