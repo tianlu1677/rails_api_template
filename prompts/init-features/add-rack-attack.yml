@@ -1,0 +1,78 @@
+name: Add Rack::Attack DDOS Protection
+description: Add and configure Rack::Attack middleware for rate limiting and DDOS protection
+
+prompt: |
+  You are an expert Rails developer. This project needs protection from DDOS attacks, brute force login attempts, and API abuse.
+  
+  Add Rack::Attack to the project with the following requirements:
+  - Configure rate limiting for authentication endpoints
+  - Configure rate limiting for API endpoints
+  - Implement brute force protection with automatic IP blocking
+  - Provide informative error responses with rate limit headers
+  - Include logging for monitoring
+  - Create comprehensive documentation
+
+steps:
+  - name: Verify or add Rack::Attack gem
+    description: Check if rack-attack is in Gemfile, add if missing
+    action: |
+      - Check Gemfile for 'rack-attack' gem
+      - If not present, add it: gem 'rack-attack'
+      - If needed, run: bundle add rack-attack
+    
+  - name: Create Rack::Attack initializer
+    description: Configure rate limiting, throttling, and blocking rules
+    action: |
+      Create config/initializers/rack_attack.rb with:
+      - Cache store configuration (MemoryStore for dev, Redis for production)
+      - Throttling rules for authentication endpoints (per minute and per day)
+      - Throttling rules for API endpoints (per minute and per day)
+      - Brute force protection with automatic IP blocking
+      - Custom 429 (rate limited) response with informative headers
+      - Custom 403 (blocked) response
+      - Logging via ActiveSupport::Notifications
+    
+  - name: Enable Rack::Attack middleware
+    description: Add middleware to Rails application configuration
+    action: |
+      In config/application.rb, add:
+      config.middleware.use Rack::Attack
+    
+    
+  - name: Create comprehensive documentation
+    description: Document configuration, usage, and testing
+    action: |
+      Create examples/RACK_ATTACK_README.md covering:
+      - Overview of protections (DDOS, brute force, API abuse)
+      - Current rate limit configurations
+      - Testing instructions with curl commands
+      - Rate limit response format and headers
+      - Monitoring and logging
+      - Customization examples (allowlisting, blocklisting)
+      - Production considerations (Redis, tuning limits)
+      - Advanced features (per-user throttling, exponential backoff)  
+
+success_criteria:
+  - Rack::Attack gem is in Gemfile
+  - config/initializers/rack_attack.rb exists with proper configuration
+  - Middleware is enabled in config/application.rb
+  - Comprehensive documentation in examples/RACK_ATTACK_README.md
+  - No linter errors
+  - Rate limits properly configured for authentication and API endpoints
+  - Brute force protection enabled with automatic blocking
+  - Custom error responses with rate limit headers
+
+testing:
+  - Test rate limiting by sending requests exceeding the configured limits
+  - Verify 429 response with rate limit headers (RateLimit-Limit, RateLimit-Remaining, RateLimit-Reset)
+  - Test brute force protection by attempting multiple failed authentication requests
+  - Verify 403 response when IP is blocked
+  - Verify logging of throttled and blocked requests in Rails logs
+
+production_notes: |
+  For production deployment:
+  - Replace MemoryStore with Redis for multi-server setups
+  - Configure Redis URL: Rack::Attack.cache.store = Redis.new(url: ENV['REDIS_URL'])
+  - Monitor rate limit logs and adjust thresholds based on traffic
+  - Consider allowlisting known good IPs (monitoring services, webhooks)
+  - Set up alerts for excessive rate limit triggers
