@@ -138,9 +138,13 @@ jobs:
           bundle exec rails parallel:load_schema
           bundle exec rails parallel:migrate
       - name: Check for untracked changes in schema.rb
-        uses: tianlu1677/check_untracked_changes@v1
-        with:
-          path: "./db/schema.rb"
+        run: |
+          if git diff --exit-code db/schema.rb; then
+            echo "No changes in schema.rb"
+          else
+            echo "Error: schema.rb has uncommitted changes. Please commit the schema changes."
+            exit 1
+          fi
       - name: Precompile assets
         run: bundle exec rails assets:precompile
       - name: Get CPU info
@@ -155,9 +159,13 @@ jobs:
       - name: Check for missing annotations
         run: bundle exec annotaterb models
       - name: Check for untracked changes in app and spec directories
-        uses: tianlu1677/check_untracked_changes@v1
-        with:
-          path: "./app/ ./spec/"
+        run: |
+          if git diff --exit-code app/ spec/; then
+            echo "No changes in app/ and spec/"
+          else
+            echo "Error: app/ or spec/ has uncommitted changes. Please commit the annotation changes."
+            exit 1
+          fi
       - name: Rename coverage files
         run: mv coverage/coverage.json coverage/coverage-${{ matrix.ci_node_index }}.json
       - name: Upload coverage report
