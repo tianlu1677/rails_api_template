@@ -683,3 +683,7 @@ Code owners are automatically requested for review when someone opens a pull req
 
 Rails API Template is maintained by [tianlu1677](http://www.tianlu1677.com) with the help of our
 [contributors](https://github.com/tianlu1677/rails_api_template/contributors).
+
+## Thanks
+
+I've gained a lot of inspiration. Thanks https://github.com/rootstrap/rails_api_base
