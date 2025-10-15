@@ -41,14 +41,10 @@ COPY --link Gemfile Gemfile.lock package.json yarn.lock .yarnrc.yml .ruby-versio
 
 RUN corepack enable
 RUN gem install bundler && bundle install -j 4 && yarn install --immutable && \
-    bundle exec bootsnap precompile --gemfile && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
 
 # Copy application code
 COPY --link . .
-
-# Precompile bootsnap code for faster boot times
-RUN bundle exec bootsnap precompile app/ lib/
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
 RUN SECRET_KEY_BASE=DUMMY ./bin/rails assets:precompile

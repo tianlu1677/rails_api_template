@@ -6,8 +6,8 @@ module API
       before_action :set_post, only: %i[show update destroy]
 
       def index
-        @q = Post.all.ransack(params[:q])
-        @posts = @q.result(distinct: true).order(id: :desc)
+        @query = Post.all.ransack(params[:q])
+        @posts = @query.result(distinct: true).order(id: :desc)
         @pagy, @posts = pagy(@posts, page: params[:page] || 1, items: params[:items] || 10)
       end
 
