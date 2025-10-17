@@ -29,7 +29,7 @@ gem 'rails_param', '~> 1.3.1'
 # Tools
 gem 'dotenv-rails', '~> 3.1.8'
 gem 'enumerize', '~> 2.8.1'
-gem 'groupdate', '~> 6.6.0'
+gem 'groupdate', '~> 6.7.0'
 gem 'pagy', '~> 9.4'
 gem 'pundit', '~> 2.5'
 gem 'ransack', '~> 4.4.1'
