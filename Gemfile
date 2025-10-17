@@ -32,7 +32,7 @@ gem 'enumerize', '~> 2.8.1'
 gem 'groupdate', '~> 6.6.0'
 gem 'pagy', '~> 9.4'
 gem 'pundit', '~> 2.5'
-gem 'ransack', '~> 4.3.0'
+gem 'ransack', '~> 4.4.1'
 
 # Monitoring
 gem 'newrelic_rpm', '~> 9.21'
