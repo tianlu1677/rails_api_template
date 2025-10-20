@@ -6,7 +6,7 @@ gem 'rails', '~> 8.0.3'
 
 # DB and Server
 gem 'pg', '~> 1.6'
-gem 'pghero', '~> 3.6.2'
+gem 'pghero', '~> 3.7.0'
 gem 'puma', '~> 7.0'
 
 # Frontend
