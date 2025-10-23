@@ -103,7 +103,7 @@ group :test do
   gem 'parallel_tests', '~> 5.4'
   gem 'pg_query', '~> 6.1.0'
   gem 'prosopite', '~> 2.1.2'
-  gem 'rspec-openapi', '~> 0.19'
+  gem 'rspec-openapi', '~> 0.20'
   # gem 'rspec-retry', github: 'tianlu1677/rspec-retry', branch: 'add-intermittent-callback'
   gem 'selenium-webdriver', '~> 4.36.0'
   gem 'shoulda-matchers', '~> 6.5'
