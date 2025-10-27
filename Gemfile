@@ -35,7 +35,7 @@ gem 'pundit', '~> 2.5'
 gem 'ransack', '~> 4.4.1'
 
 # Monitoring
-gem 'newrelic_rpm', '~> 9.21'
+gem 'newrelic_rpm', '~> 9.22'
 gem 'sentry-ruby', '~> 5.24.0'
 
 # Storage
