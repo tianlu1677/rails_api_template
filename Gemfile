@@ -40,7 +40,7 @@ gem 'sentry-ruby', '~> 5.24.0'
 
 # Storage
 gem 'active_storage_base64', '~> 3.0.1'
-gem 'aws-sdk-s3', '~> 1.199', require: false
+gem 'aws-sdk-s3', '~> 1.201', require: false
 
 # Doc
 gem 'rswag-api', '~> 2.16.0'
