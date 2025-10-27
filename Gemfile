@@ -54,7 +54,7 @@ gem 'flipper-ui', '~> 1.3.6'
 gem 'lograge', '~> 0.14'
 
 # Queue
-gem 'good_job', '~> 4.12.0'
+gem 'good_job', '~> 4.12.1'
 
 gem 'sendgrid', '~> 1.2.4'
 gem 'yaaf', '~> 3.0'
