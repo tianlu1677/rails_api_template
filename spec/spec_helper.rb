@@ -9,7 +9,6 @@ require 'helpers'
 require 'knapsack'
 require 'webmock/rspec'
 require 'shoulda/matchers'
-require 'pundit/rspec'
 require 'capybara/rspec'
 require 'simplecov_json_formatter'
 

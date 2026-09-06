@@ -9,6 +9,8 @@
 $fa-font-path: ".";
 
 // Active Admin's got SASS!
+// Arctic Admin 4.4.1 ships this variable separately from its main bundle.
+@import 'arctic_admin/src/scss/variables/box_shadows';
 @import 'arctic_admin/src/scss/main';
 @import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '@fortawesome/fontawesome-free/scss/solid.scss';

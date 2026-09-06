@@ -4,7 +4,6 @@ module API
   module V1
     class APIController < ActionController::API
       include API::Concerns::ActAsAPIRequest
-      include Pundit::Authorization
       include Pagy::Backend
 
       before_action :authenticate_user!

@@ -2,7 +2,9 @@
 
 source 'https://rubygems.org'
 
-gem 'rails', '~> 8.0.3'
+ruby '3.3.11'
+
+gem 'rails', '~> 8.1.3', '>= 8.1.3.1'
 
 # DB and Server
 gem 'pg', '~> 1.6'
@@ -10,14 +12,17 @@ gem 'pghero', '~> 3.7.0'
 gem 'puma', '~> 7.1'
 
 # Frontend
-gem 'activeadmin', '~> 3.3'
+gem 'activeadmin', '~> 3.5'
 gem 'cssbundling-rails', '~> 1.4'
 gem 'jsbundling-rails', '~> 1.3'
 gem 'sprockets-rails', '~> 3.5', '>= 3.5.2'
+gem 'stimulus-rails', '~> 1.3'
+gem 'tailwindcss-rails', '~> 4.6'
+gem 'turbo-rails', '~> 2.0'
 
 # Users
-gem 'devise', '~> 4.9'
-gem 'devise-jwt', '~> 0.12.0'
+gem 'devise', '~> 5.0'
+gem 'devise-jwt', '~> 0.13.0'
 
 # API
 gem 'jbuilder', '~> 2.14'
@@ -27,12 +32,12 @@ gem 'rack-cors', '~> 3.0'
 gem 'rails_param', '~> 1.3.1'
 
 # Tools
-gem 'dotenv-rails', '~> 3.1.8'
+gem 'dotenv-rails', '~> 3.2.0'
 gem 'enumerize', '~> 2.8.1'
 gem 'groupdate', '~> 6.7.0'
 gem 'pagy', '~> 9.4'
-gem 'pundit', '~> 2.5'
 gem 'ransack', '~> 4.4.1'
+gem 'ruby_llm', '~> 1.16'
 
 # Monitoring
 gem 'newrelic_rpm', '~> 9.21'
@@ -40,11 +45,10 @@ gem 'sentry-ruby', '~> 5.24.0'
 
 # Storage
 gem 'active_storage_base64', '~> 3.0.1'
-gem 'aws-sdk-s3', '~> 1.199', require: false
 
 # Doc
-gem 'rswag-api', '~> 2.16.0'
-gem 'rswag-ui', '~> 2.16.0'
+gem 'rswag-api', '~> 2.17.0'
+gem 'rswag-ui', '~> 2.17.0'
 
 gem 'bootsnap', '~> 1.18'
 gem 'draper', '~> 4.0'

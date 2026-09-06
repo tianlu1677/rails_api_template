@@ -16,6 +16,12 @@ module Users
       super
     end
 
+    protected
+
+    def after_sign_in_path_for(_resource)
+      account_path
+    end
+
     # DELETE /resource/sign_out
     # def destroy
     #   super

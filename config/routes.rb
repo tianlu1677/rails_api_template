@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
+  authenticate :user do
+    resource :account, only: :show, controller: 'users/accounts'
+  end
+
   namespace :api do
     namespace :v1, defaults: { format: :json } do
       get :status, to: 'health#status'

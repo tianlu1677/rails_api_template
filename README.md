@@ -2,7 +2,7 @@
 
 [![Github Actions CI](https://github.com/tianlu1677/rails_api_template/actions/workflows/ci.yml/badge.svg?event=push)](https://github.com/tianlu1677/rails_api_template/actions)
 
-Rails API Base is a production-ready boilerplate project for JSON RESTful APIs. It follows community best practices in terms of standards, security, and maintainability, integrating a comprehensive suite of testing and code quality tools. Built on Rails 8.0 and Ruby 3.4.
+Rails API Base is a production-ready boilerplate project for JSON RESTful APIs. It follows community best practices in terms of standards, security, and maintainability, integrating a comprehensive suite of testing and code quality tools. Built on Rails 8.1 and Ruby 3.3.11.
 
 The template includes a plug-and-play Administration console powered by [ActiveAdmin](https://github.com/activeadmin/activeadmin), background job processing with [GoodJob](https://github.com/bensheldon/good_job), and feature flag management via [Flipper](https://github.com/jnunemaker/flipper).
 
@@ -49,7 +49,7 @@ This template comes with:
 
 ### Infrastructure & Tools
 - **Authentication**: Devise + Devise-JWT for token-based auth
-- **Authorization**: Pundit for policy-based access control
+- **HTML authentication**: Turbo-powered Devise pages with Stimulus interactions
 - **API Documentation**: OpenAPI/Swagger via Rswag
 - **Background Jobs**: GoodJob for async processing
 - **Feature Flags**: Flipper with ActiveRecord adapter
@@ -131,15 +131,14 @@ To illustrate, `bin/rails console` will run the console in the docker container 
 ## Key Gems & Libraries
 
 ### Core Framework
-- [Rails 8.0](https://rubyonrails.org/) - Web application framework
+- [Rails 8.1](https://rubyonrails.org/) - Web application framework
 - [Puma](https://github.com/puma/puma) - High-performance web server
 - [PostgreSQL](https://github.com/ged/ruby-pg) - Database adapter
 - [Bootsnap](https://github.com/Shopify/bootsnap) - Boot time optimization
 
-### Authentication & Authorization
+### Authentication
 - [Devise](https://github.com/heartcombo/devise) - Authentication framework
 - [Devise JWT](https://github.com/waiting-for-dev/devise-jwt) - JWT token authentication for APIs
-- [Pundit](https://github.com/varvet/pundit) - Authorization with policies
 
 ### API Development
 - [Jbuilder](https://github.com/rails/jbuilder) - JSON templating
@@ -153,6 +152,9 @@ To illustrate, `bin/rails console` will run the console in the docker container 
 - [Draper](https://github.com/drapergem/draper) - View decorators
 - [JS Bundling](https://github.com/rails/jsbundling-rails) - JavaScript bundling with esbuild
 - [CSS Bundling](https://github.com/rails/cssbundling-rails) - CSS bundling with Sass
+- [Turbo Rails](https://github.com/hotwired/turbo-rails) - Fast page navigation and form submissions
+- [Stimulus Rails](https://github.com/hotwired/stimulus-rails) - Lightweight JavaScript interactions
+- [Tailwind CSS Rails](https://github.com/rails/tailwindcss-rails) - Utility CSS for ActiveAdmin
 
 ### Background Jobs & Feature Flags
 - [GoodJob](https://github.com/bensheldon/good_job) - PostgreSQL-based background jobs
@@ -167,6 +169,7 @@ To illustrate, `bin/rails console` will run the console in the docker container 
 - [Enumerize](https://github.com/brainspec/enumerize) - Enumerated attributes
 - [Groupdate](https://github.com/ankane/groupdate) - Time series grouping
 - [Active Storage Base64](https://github.com/tianlu1677/active-storage-base64) - Base64 file uploads
+- [RubyLLM](https://rubyllm.com/) - Unified access to LLM providers
 
 ### Monitoring & Error Tracking
 - [New Relic](https://github.com/newrelic/newrelic-ruby-agent) - Application performance monitoring
@@ -213,7 +216,7 @@ To illustrate, `bin/rails console` will run the console in the docker container 
 - [I18n Tasks](https://github.com/glebm/i18n-tasks) - I18n key management
 
 ### Storage & Email
-- [AWS SDK S3](https://github.com/aws/aws-sdk-ruby) - Amazon S3 integration
+- [Active Storage](https://guides.rubyonrails.org/active_storage_overview.html) - Local file storage
 - [SendGrid](https://github.com/sendgrid/sendgrid-ruby) - Email delivery service
 
 ## Getting Started with Your Project
@@ -284,11 +287,8 @@ NEW_RELIC_APP_NAME=YourAppName
 
 SENTRY_DSN=your_sentry_dsn
 
-# AWS S3 (for file uploads)
-AWS_ACCESS_KEY_ID=your_aws_key
-AWS_SECRET_ACCESS_KEY=your_aws_secret
-AWS_REGION=us-east-1
-AWS_BUCKET=your-bucket-name
+# LLM provider (optional)
+OPENAI_API_KEY=your_openai_api_key
 ```
 
 ### Optional Configuration
@@ -655,7 +655,6 @@ app/
 │   ├── api/v1/        # API v1 endpoints
 │   └── users/         # Devise user controllers
 ├── models/            # ActiveRecord models
-├── policies/          # Pundit authorization policies
 ├── jobs/              # Background jobs
 ├── mailers/           # Email mailers
 └── views/             # Jbuilder views for JSON APIs
@@ -667,7 +666,6 @@ config/
 spec/                  # RSpec tests
 ├── models/           # Model tests
 ├── requests/         # Request/integration tests
-├── policies/         # Policy tests
 └── factories/        # FactoryBot factories
 
 docs/                  # Documentation

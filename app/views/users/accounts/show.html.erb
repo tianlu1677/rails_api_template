@@ -1,0 +1,9 @@
+<main class="auth-shell">
+  <section class="auth-card">
+    <h1>You're signed in</h1>
+    <p class="auth-card__lead"><%= current_user.email %></p>
+    <div class="auth-actions">
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo: true } %>
+    </div>
+  </section>
+</main>

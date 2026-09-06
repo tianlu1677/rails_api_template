@@ -1,0 +1,32 @@
+<main class="auth-shell">
+  <%= turbo_frame_tag "user_authentication" do %>
+    <section class="auth-card">
+      <h1>Welcome back</h1>
+      <p class="auth-card__lead">Sign in to continue to your account.</p>
+
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_with model: resource, as: resource_name, url: session_path(resource_name), data: { controller: "form", action: "turbo:submit-start->form#submitStart turbo:submit-end->form#submitEnd" } do |form| %>
+        <div class="auth-field">
+          <%= form.label :email %>
+          <%= form.email_field :email, autofocus: true, autocomplete: "email", required: true %>
+        </div>
+
+        <div class="auth-field" data-controller="password">
+          <%= form.label :password %>
+          <div class="auth-password">
+            <%= form.password_field :password, autocomplete: "current-password", required: true, data: { password_target: "input" } %>
+            <button type="button" data-password-target="toggle" data-action="password#toggle" aria-pressed="false">Show</button>
+          </div>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="auth-field"><%= form.check_box :remember_me %> <%= form.label :remember_me %></div>
+        <% end %>
+
+        <div class="auth-actions"><%= form.submit "Sign in", data: { form_target: "submit", loading_label: "Signing in…" } %></div>
+      <% end %>
+
+      <nav class="auth-links"><%= link_to "Create account", new_registration_path(resource_name), data: { turbo_frame: "user_authentication" } %><%= link_to "Forgot password?", new_password_path(resource_name), data: { turbo_frame: "_top" } %></nav>
+    </section>
+  <% end %>
+</main>

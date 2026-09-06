@@ -1,0 +1,26 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #172033;
+  background: #f5f7fb;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; }
+.auth-shell { min-height: 100vh; display: grid; place-items: center; padding: 2rem 1rem; }
+.auth-card { width: min(100%, 28rem); padding: 2rem; border: 1px solid #e3e8f1; border-radius: 1rem; background: #fff; box-shadow: 0 20px 50px rgba(27, 39, 69, .08); }
+.auth-card h1 { margin: 0 0 .5rem; font-size: 1.75rem; }
+.auth-card__lead { margin: 0 0 1.5rem; color: #667085; }
+.auth-field { margin-bottom: 1rem; }
+.auth-field label { display: block; margin-bottom: .4rem; font-weight: 650; }
+.auth-field input:not([type="checkbox"]) { width: 100%; min-height: 2.8rem; padding: .7rem .8rem; border: 1px solid #cfd6e4; border-radius: .65rem; font: inherit; }
+.auth-field input:focus { border-color: #4f46e5; outline: 3px solid rgba(79, 70, 229, .15); }
+.auth-password { position: relative; }
+.auth-password input { padding-right: 4.5rem !important; }
+.auth-password button { position: absolute; top: 50%; right: .7rem; transform: translateY(-50%); border: 0; color: #4f46e5; background: transparent; cursor: pointer; font-weight: 650; }
+.auth-actions input, .auth-actions button { width: 100%; padding: .8rem 1rem; border: 0; border-radius: .65rem; color: #fff; background: #4f46e5; cursor: pointer; font: inherit; font-weight: 700; }
+.auth-actions input:disabled, .auth-actions button:disabled { opacity: .65; cursor: wait; }
+.auth-links { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.25rem; }
+.auth-links a { color: #4f46e5; text-decoration: none; }
+.auth-errors { margin-bottom: 1rem; padding: .8rem 1rem; border-radius: .65rem; color: #9b1c1c; background: #fff1f1; }
+.auth-errors ul { margin: .5rem 0 0; padding-left: 1.25rem; }
