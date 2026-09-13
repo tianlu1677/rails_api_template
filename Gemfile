@@ -37,7 +37,7 @@ gem 'enumerize', '~> 2.8.1'
 gem 'groupdate', '~> 6.7.0'
 gem 'pagy', '~> 9.4'
 gem 'ransack', '~> 4.4.1'
-gem 'ruby_llm', '~> 1.16'
+gem 'ruby_llm', '2.0.0.rc2'
 
 # Monitoring
 gem 'newrelic_rpm', '~> 9.21'
