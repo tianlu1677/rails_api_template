@@ -1,0 +1,36 @@
+---
+{
+  "schema_version": "authorship/3.1.0",
+  "tlab_version": "0.10.2",
+  "base_commit_sha": "b615dfa41eb6ab289d4eecff577dcaae266720b1",
+  "prompts": {},
+  "changes": [
+    {
+      "old_path": "Gemfile",
+      "new_path": "Gemfile",
+      "additions": {
+        "human": 1
+      },
+      "deletions": {
+        "human": 1
+      }
+    },
+    {
+      "old_path": "Gemfile.lock",
+      "new_path": "Gemfile.lock",
+      "additions": {
+        "human": 6
+      },
+      "deletions": {
+        "human": 5
+      }
+    },
+    {
+      "old_path": "config/application.rb",
+      "new_path": "config/application.rb",
+      "deletions": {
+        "human": 3
+      }
+    }
+  ]
+}
