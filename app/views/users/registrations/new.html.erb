@@ -1,25 +1,51 @@
+<% content_for :title, "Create your account · Rails API Template" %>
+
 <main class="auth-shell">
-  <%= turbo_frame_tag "user_authentication" do %>
-    <section class="auth-card">
-      <h1>Create your account</h1>
-      <p class="auth-card__lead">It only takes a moment to get started.</p>
+  <div class="auth-layout">
+    <aside class="auth-intro">
+      <div class="auth-mark"><span class="auth-mark__icon">✦</span><span>Rails API Template</span></div>
+      <h1>Your next chapter starts here.</h1>
+      <p>Create an account and get a thoughtful foundation for shipping your next product with confidence.</p>
+      <ul class="auth-points">
+        <li>Ready-to-use Rails foundation</li>
+        <li>Secure authentication out of the box</li>
+        <li>A workspace that stays out of your way</li>
+      </ul>
+    </aside>
 
-      <%= render "devise/shared/error_messages", resource: resource %>
-      <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), data: { controller: "form", action: "turbo:submit-start->form#submitStart turbo:submit-end->form#submitEnd" } do |form| %>
-        <div class="auth-field"><%= form.label :email %><%= form.email_field :email, autofocus: true, autocomplete: "email", required: true %></div>
-        <div class="auth-field" data-controller="password">
-          <%= form.label :password %>
-          <% if @minimum_password_length %><small><%= @minimum_password_length %> characters minimum</small><% end %>
-          <div class="auth-password">
-            <%= form.password_field :password, autocomplete: "new-password", required: true, minlength: @minimum_password_length, data: { password_target: "input" } %>
-            <button type="button" data-password-target="toggle" data-action="password#toggle" aria-pressed="false">Show</button>
+    <section class="card auth-card">
+      <div class="card-body">
+        <h2>Create your account</h2>
+        <p class="auth-card__lead">It only takes a moment to get started.</p>
+
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), class: "auth-form", data: { controller: "form", action: "turbo:submit-start->form#submitStart turbo:submit-end->form#submitEnd" } do |form| %>
+          <div class="form-control">
+            <%= form.label :email, class: "label" do %><span class="label-text">Email address</span><% end %>
+            <%= form.email_field :email, autofocus: true, autocomplete: "email", required: true, class: "input input-md", placeholder: "you@example.com" %>
           </div>
-        </div>
-        <div class="auth-field"><%= form.label :password_confirmation %><%= form.password_field :password_confirmation, autocomplete: "new-password", required: true, minlength: @minimum_password_length %></div>
-        <div class="auth-actions"><%= form.submit "Create account", data: { form_target: "submit", loading_label: "Creating account…" } %></div>
-      <% end %>
 
-      <nav class="auth-links"><%= link_to "Already have an account?", new_session_path(resource_name), data: { turbo_frame: "user_authentication" } %></nav>
+          <div class="form-control" data-controller="password">
+            <%= form.label :password, class: "label" do %><span class="label-text">Password</span><% end %>
+            <% if @minimum_password_length %><span class="label-text-alt"><%= @minimum_password_length %> characters minimum</span><% end %>
+            <div class="auth-password">
+              <%= form.password_field :password, autocomplete: "new-password", required: true, minlength: @minimum_password_length, class: "input input-md", data: { password_target: "input" } %>
+              <button type="button" class="btn btn-ghost btn-xs" data-password-target="toggle" data-action="password#toggle" aria-pressed="false">Show</button>
+            </div>
+          </div>
+
+          <div class="form-control">
+            <%= form.label :password_confirmation, class: "label" do %><span class="label-text">Confirm password</span><% end %>
+            <%= form.password_field :password_confirmation, autocomplete: "new-password", required: true, minlength: @minimum_password_length, class: "input input-md" %>
+          </div>
+
+          <%= form.submit "Create account", class: "btn btn-primary auth-submit", data: { form_target: "submit", loading_label: "Creating account…" } %>
+        <% end %>
+
+        <p class="auth-links auth-links--center">
+          <%= link_to "Already have an account? Sign in", new_session_path(resource_name), class: "link link-primary", data: { turbo_frame: "user_authentication" } %>
+        </p>
+      </div>
     </section>
-  <% end %>
+  </div>
 </main>

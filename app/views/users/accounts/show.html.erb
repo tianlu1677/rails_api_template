@@ -1,9 +1,13 @@
+<% content_for :title, "Your account · Rails API Template" %>
+
 <main class="auth-shell">
-  <section class="auth-card">
-    <h1>You're signed in</h1>
-    <p class="auth-card__lead"><%= current_user.email %></p>
-    <div class="auth-actions">
-      <%= button_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo: true } %>
+  <section class="card auth-card">
+    <div class="card-body">
+      <div class="auth-mark"><span class="auth-mark__icon">✦</span><span>Rails API Template</span></div>
+      <span class="badge badge-success badge-outline">Signed in</span>
+      <h2>Good to see you.</h2>
+      <p class="auth-card__lead"><%= current_user.email %></p>
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-outline auth-submit", data: { turbo: true } %>
     </div>
   </section>
 </main>

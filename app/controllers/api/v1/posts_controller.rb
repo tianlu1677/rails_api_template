@@ -8,7 +8,7 @@ module API
       def index
         @query = Post.all.ransack(params[:q])
         @posts = @query.result(distinct: true).order(id: :desc)
-        @pagy, @posts = pagy(@posts, page: params[:page] || 1, items: params[:items] || 10)
+        @pagy, @posts = pagy(:offset, @posts, page: params[:page] || 1, limit: params[:items] || 10)
       end
 
       def show

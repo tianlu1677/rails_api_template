@@ -8,8 +8,8 @@ gem 'rails', '~> 8.1.3', '>= 8.1.3.1'
 
 # DB and Server
 gem 'pg', '~> 1.6'
-gem 'pghero', '~> 3.7.0'
-gem 'puma', '~> 7.1'
+gem 'pghero', '~> 4.0'
+gem 'puma', '~> 8.0'
 
 # Frontend
 gem 'activeadmin', '~> 3.5'
@@ -26,22 +26,22 @@ gem 'devise-jwt', '~> 0.13.0'
 
 # API
 gem 'jbuilder', '~> 2.14'
-gem 'oj', '~> 3.16.10'
+gem 'oj', '~> 3.17'
 gem 'rack-attack'
 gem 'rack-cors', '~> 3.0'
 gem 'rails_param', '~> 1.3.1'
 
 # Tools
 gem 'dotenv-rails', '~> 3.2.0'
-gem 'enumerize', '~> 2.8.1'
-gem 'groupdate', '~> 6.7.0'
-gem 'pagy', '~> 9.4'
-gem 'ransack', '~> 4.4.1'
-gem 'ruby_llm', '2.0.0.rc2'
+gem 'enumerize', '~> 3.0'
+gem 'groupdate', '~> 6.8'
+gem 'pagy', '~> 43.6'
+gem 'ransack', '~> 5.0'
+gem 'ruby_llm', '~> 2.0'
 
 # Monitoring
-gem 'newrelic_rpm', '~> 9.21'
-gem 'sentry-ruby', '~> 5.24.0'
+gem 'newrelic_rpm', '~> 10.8'
+gem 'sentry-ruby', '~> 7.0'
 
 # Storage
 gem 'active_storage_base64', '~> 3.0.1'
@@ -51,14 +51,13 @@ gem 'rswag-api', '~> 2.17.0'
 gem 'rswag-ui', '~> 2.17.0'
 
 gem 'bootsnap', '~> 1.18'
-gem 'draper', '~> 4.0'
-gem 'flipper', '~> 1.3.5'
-gem 'flipper-active_record', '~> 1.3.6'
-gem 'flipper-ui', '~> 1.3.6'
+gem 'flipper', '~> 1.4'
+gem 'flipper-active_record', '~> 1.4'
+gem 'flipper-ui', '~> 1.4'
 gem 'lograge', '~> 0.14'
 
 # Queue
-gem 'good_job', '~> 4.12.0'
+gem 'good_job', '~> 4.19'
 
 gem 'sendgrid', '~> 1.2.4'
 gem 'yaaf', '~> 3.0'
@@ -70,7 +69,7 @@ gem 'yaaf', '~> 3.0'
 # gem 'image_processing', '~> 1.2'
 
 group :development, :test do
-  gem 'annotaterb', '~> 4.19.0'
+  gem 'annotaterb', '~> 4.25'
   gem 'chaotic_order', '~> 0.1.0'
   gem 'factory_bot_rails', '~> 6.5'
   gem 'faker', '~> 3.5'
@@ -81,21 +80,21 @@ end
 
 group :development do
   gem 'better_errors', '~> 2.10'
-  gem 'binding_of_caller', '~> 1.0'
-  gem 'brakeman', '~> 7.1'
-  gem 'i18n-tasks', '~> 1.0.15'
+  gem 'binding_of_caller', '~> 2.0'
+  gem 'brakeman', '~> 8.0'
+  gem 'i18n-tasks', '~> 1.1'
   gem 'letter_opener', '~> 1.10'
   gem 'listen', '~> 3.9'
   gem 'rails_best_practices', '~> 1.20'
   gem 'reek', '~> 6.5'
-  gem 'rubocop', '~> 1.81', require: false
-  gem 'rubocop-capybara', '~> 2.22'
+  gem 'rubocop', '~> 1.91', require: false
+  gem 'rubocop-capybara', '~> 3.0'
   gem 'rubocop-factory_bot', '~> 2.27', require: false
-  gem 'rubocop-performance', '~> 1.26', require: false
-  gem 'rubocop-rails', '~> 2.33', require: false
+  gem 'rubocop-performance', '~> 1.27', require: false
+  gem 'rubocop-rails', '~> 2.38', require: false
   gem 'rubocop-rake', '~> 0.7.1', require: false
   gem 'rubocop-rspec', '~> 3.7', require: false
-  gem 'rubocop-rspec_rails', '~> 2.31.0', require: false
+  gem 'rubocop-rspec_rails', '~> 2.32', require: false
 end
 
 group :test do
@@ -103,14 +102,14 @@ group :test do
   gem 'faraday-retry', '~> 2.3'
   gem 'knapsack', '~> 4.0'
   gem 'octokit', '~> 10.0'
-  gem 'parallel_tests', '~> 5.4'
-  gem 'pg_query', '~> 6.1.0'
-  gem 'prosopite', '~> 2.1.2'
+  gem 'parallel_tests', '~> 5.8'
+  gem 'pg_query', '~> 6.2'
+  gem 'prosopite', '~> 2.2'
   gem 'rspec-openapi', '~> 0.20'
   # gem 'rspec-retry', github: 'tianlu1677/rspec-retry', branch: 'add-intermittent-callback'
-  gem 'selenium-webdriver', '~> 4.36.0'
-  gem 'shoulda-matchers', '~> 6.5'
-  gem 'simplecov', '~> 0.22.0', require: false
+  gem 'selenium-webdriver', '~> 4.49'
+  gem 'shoulda-matchers', '~> 8.0'
+  gem 'simplecov', '~> 1.3', require: false
   gem 'webmock', '~> 3.25'
 end
 

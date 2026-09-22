@@ -1,10 +1,12 @@
 <% if resource.errors.any? %>
-  <div class="auth-errors" role="alert" data-turbo-temporary>
-    <strong><%= pluralize(resource.errors.count, "error") %> prevented this request:</strong>
-    <ul>
-      <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+  <div class="alert alert-error auth-errors" role="alert" data-turbo-temporary>
+    <div>
+      <strong><%= pluralize(resource.errors.count, "error") %> prevented this request:</strong>
+      <ul>
+        <% resource.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 <% end %>

@@ -5,13 +5,13 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'simplecov'
 
 SimpleCov.start 'rails' do
-  add_group 'Forms', 'app/forms'
-  add_group 'Policies', 'app/policies'
-  add_group 'Presenters', 'app/presenters'
-  add_filter 'app/admin'
-  add_filter 'config'
-  add_filter 'spec'
-  add_filter 'lib/tasks/code_analysis.rake'
+  group 'Forms', 'app/forms'
+  group 'Policies', 'app/policies'
+  group 'Presenters', 'app/presenters'
+  skip 'app/admin'
+  skip 'config'
+  skip 'spec'
+  skip 'lib/tasks/code_analysis.rake'
 end
 
 require File.expand_path('../config/environment', __dir__)

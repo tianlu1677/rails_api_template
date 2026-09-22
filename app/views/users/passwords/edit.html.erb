@@ -1,0 +1,27 @@
+<% content_for :title, "Choose a new password · Rails API Template" %>
+
+<main class="auth-shell">
+  <section class="card auth-card">
+    <div class="card-body">
+      <div class="auth-mark"><span class="auth-mark__icon">✦</span><span>Rails API Template</span></div>
+      <h2>Choose a new password</h2>
+      <p class="auth-card__lead">Use a strong password you haven’t used elsewhere.</p>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_with model: resource, as: resource_name, url: password_path(resource_name), class: "auth-form" do |form| %>
+        <%= form.hidden_field :reset_password_token %>
+        <div class="form-control" data-controller="password">
+          <%= form.label :password, class: "label" do %><span class="label-text">New password</span><% end %>
+          <div class="auth-password">
+            <%= form.password_field :password, autofocus: true, autocomplete: "new-password", required: true, class: "input input-md", data: { password_target: "input" } %>
+            <button type="button" class="btn btn-ghost btn-xs" data-password-target="toggle" data-action="password#toggle" aria-pressed="false">Show</button>
+          </div>
+        </div>
+        <div class="form-control">
+          <%= form.label :password_confirmation, class: "label" do %><span class="label-text">Confirm password</span><% end %>
+          <%= form.password_field :password_confirmation, autocomplete: "new-password", required: true, class: "input input-md" %>
+        </div>
+        <%= form.submit "Update password", class: "btn btn-primary auth-submit" %>
+      <% end %>
+    </div>
+  </section>
+</main>

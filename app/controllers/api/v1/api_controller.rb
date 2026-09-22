@@ -4,7 +4,7 @@ module API
   module V1
     class APIController < ActionController::API
       include API::Concerns::ActAsAPIRequest
-      include Pagy::Backend
+      include Pagy::Method
 
       before_action :authenticate_user!
 
